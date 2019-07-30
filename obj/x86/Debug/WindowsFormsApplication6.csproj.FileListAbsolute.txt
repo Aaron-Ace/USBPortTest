@@ -33,3 +33,12 @@ D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest_AutoClosed_0729\obj
 D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest_AutoClosed_0729\obj\x86\Debug\WindowsFormsApplication6.Form1.resources
 D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest_AutoClosed_0729\obj\x86\Debug\WindowsFormsApplication6.Properties.Resources.resources
 D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest_AutoClosed_0729\obj\x86\Debug\WindowsFormsApplication6.csproj.GenerateResource.Cache
+D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest_Auto_0729\obj\x86\Debug\WindowsFormsApplication6.exe
+D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest_Auto_0729\obj\x86\Debug\WindowsFormsApplication6.pdb
+D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest_Auto_0729\bin\Debug\Properties\bmp00005.bmp
+D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest_Auto_0729\bin\Debug\WindowsFormsApplication6.exe
+D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest_Auto_0729\bin\Debug\WindowsFormsApplication6.pdb
+D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest_Auto_0729\obj\x86\Debug\WindowsFormsApplication6.csprojResolveAssemblyReference.cache
+D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest_Auto_0729\obj\x86\Debug\WindowsFormsApplication6.Form1.resources
+D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest_Auto_0729\obj\x86\Debug\WindowsFormsApplication6.Properties.Resources.resources
+D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest_Auto_0729\obj\x86\Debug\WindowsFormsApplication6.csproj.GenerateResource.Cache
