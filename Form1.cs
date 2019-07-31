@@ -27,17 +27,23 @@ namespace WindowsFormsApplication6
         //Show Botton
         private void button2_Click(object sender, EventArgs e)
         {
-
+            //清理全部，返回預設值
             CleanAll();
-            checkBox13.Checked = false;
+
+            //添加拉鈕
             textBox1.ScrollBars = ScrollBars.Vertical;
+
+            //添加磁碟名
             DiskName();
 
-            int count = 0;//switch
-            //Show USB Message 
+            //switch 更替不同物件
+            int count = 0;
+
+            //Show USB Storage Content 
             ManagementObjectSearcher device_searcher = new ManagementObjectSearcher("SELECT * FROM Win32_USBHub");
             foreach (ManagementObject usb_device in device_searcher.Get())
             {
+                //如果符合USB類型
                 if (usb_device.Properties["Name"].Value.ToString() == "USB Mass Storage Device")
                 {
                     textBox1.AppendText(usb_device.Properties["Caption"].Value.ToString() + "\n");                
@@ -45,6 +51,7 @@ namespace WindowsFormsApplication6
                     count += 1;
                     
                 }
+                //將資訊添加在條列式textBox中
                 switch (count)
                 {
                     case 1:
@@ -87,22 +94,24 @@ namespace WindowsFormsApplication6
                 }
 
             }
+            //計算有多少個USB Devices 
             textBox1.AppendText("Total Devices: " + count + "\r\n");
             
+            //如果count為0 則無USB Devices 
             if (count == 0)
-            {
-                textBox1.AppendText("None Devices" + "\n");
-            }
-
-
+            {textBox1.AppendText("None Devices" + "\n");}
         }
 
         //Test Botton
         public void button1_Click(object sender, EventArgs e)
         {
+            //添加磁碟名
             DiskName();
-            int count = 1;//Switch Case
-            //USB Message show at list 
+
+            //switch 更替不同物件
+            int count = 1;
+
+            //USB Message storage devices show at list 
             ManagementObjectSearcher device_searcher = new ManagementObjectSearcher("SELECT * FROM Win32_USBHub");
             foreach (ManagementObject usb_device in device_searcher.Get())
             {
@@ -147,6 +156,7 @@ namespace WindowsFormsApplication6
 
                 }
             }
+
             //Test if checkBox check
             int[] CheckBoxBool = new int[13];
             if (checkBox1.Checked) { CheckBoxBool[1]  = 1; }
@@ -226,13 +236,108 @@ namespace WindowsFormsApplication6
                     }
                 }
             }
+
+            //TextBox1 add content
+
+            int flag_testcheck = 0;
+
+            //add Time
+            string date = DateTime.Now.ToString("MM-dd-yyyy HH:mm:ss");
+            textBox1.AppendText("\r\n"  +  date + "\r\n\r\n");
+
+            //add USB PORT Each result
+            if (checkBox1.Checked == true)
+            {
+                if (textBox14.Text == "0") { textBox1.AppendText("USB Port 1 ----------> PASS\r\n"); }
+                else { textBox1.AppendText("USB Port 1 ----------> FAIL\r\n"); }
+                flag_testcheck = 1;
+            }
+            if (checkBox2.Checked == true)
+            {
+                if (textBox15.Text == "0") { textBox1.AppendText("USB Port 2 ----------> PASS\r\n"); }
+                else { textBox1.AppendText("USB Port 2 ----------> FAIL\r\n"); }
+                flag_testcheck = 1;
+            }
+            if (checkBox3.Checked == true)
+            {
+                if (textBox16.Text == "0") { textBox1.AppendText("USB Port 3 ----------> PASS\r\n"); }
+                else { textBox1.AppendText("USB Port 3 ----------> FAIL\r\n"); }
+                flag_testcheck = 1;
+            }
+            if (checkBox4.Checked == true)
+            {
+                if (textBox17.Text == "0") { textBox1.AppendText("USB Port 4 ----------> PASS\r\n"); }
+                else { textBox1.AppendText("USB Port 4 ----------> FAIL\r\n"); }
+                flag_testcheck = 1;
+            }
+            if (checkBox5.Checked == true)
+            {
+                if (textBox18.Text == "0") { textBox1.AppendText("USB Port 5 ----------> PASS\r\n"); }
+                else { textBox1.AppendText("USB Port 5 ----------> FAIL\r\n"); }
+                flag_testcheck = 1;
+            }
+            if (checkBox6.Checked == true)
+            {
+                if (textBox19.Text == "0") { textBox1.AppendText("USB Port 6 ----------> PASS\r\n"); }
+                else { textBox1.AppendText("USB Port 6 ----------> FAIL\r\n"); }
+                flag_testcheck = 1;
+            }
+            if (checkBox7.Checked == true)
+            {
+                if (textBox20.Text == "0") { textBox1.AppendText("USB Port 7 ----------> PASS\r\n"); }
+                else { textBox1.AppendText("USB Port 7 ----------> FAIL\r\n"); }
+                flag_testcheck = 1;
+            }
+            if (checkBox8.Checked == true)
+            {
+                if (textBox21.Text == "0") { textBox1.AppendText("USB Port 8 ----------> PASS\r\n"); }
+                else { textBox1.AppendText("USB Port 8 ----------> FAIL\r\n"); }
+                flag_testcheck = 1;
+            }
+            if (checkBox9.Checked == true)
+            {
+                if (textBox22.Text == "0") { textBox1.AppendText("USB Port 9 ----------> PASS\r\n"); }
+                else { textBox1.AppendText("USB Port 9 ----------> FAIL\r\n"); }
+                flag_testcheck = 1;
+            }
+            if (checkBox10.Checked == true)
+            {
+                if (textBox23.Text == "0") { textBox1.AppendText("USB Port 10 ---------> PASS\r\n"); }
+                else { textBox1.AppendText("USB Port 10 ---------> FAIL\r\n"); }
+                flag_testcheck = 1;
+            }
+            if (checkBox11.Checked == true)
+            {
+                if (textBox24.Text == "0") { textBox1.AppendText("USB Port 11 ---------> PASS\r\n"); }
+                else { textBox1.AppendText("USB Port 11 ---------> FAIL\r\n"); }
+                flag_testcheck = 1;
+            }
+            if (checkBox12.Checked == true)
+            {
+                if (textBox25.Text == "0") { textBox1.AppendText("USB Port 12 ---------> PASS\r\n"); }
+                else { textBox1.AppendText("USB Port 12 ---------> FAIL\r\n"); }
+                flag_testcheck = 1;
+            }
+
+            //add USB Port Total Result
+            if (flag_testcheck == 0 && log_test.log_flag == 0)
+            {
+                textBox1.AppendText("\r\nWarning !!! Please Check At Least One !\r\n");
+            }
+            else if (log_test.log_flag == 0)
+            {
+                textBox1.AppendText("\r\nTest  Result ----------> PASS\r\n");
+            }
+            else
+            {
+                textBox1.AppendText("\r\nTest  Result ----------> FAIL\r\n");
+            }
+
             CreateLogfile();
             string str1 = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
             IniFile ini = new IniFile(str1 + "\\USBTest.ini");
             if (log_test.log_flag == 0 && ini.Read("AUTO") == "0")
-            {
-                timer1_Tick(sender, e);
-            }
+            {timer1_Tick(sender, e);}
            
         }
 
@@ -282,6 +387,7 @@ namespace WindowsFormsApplication6
             checkBox10.Checked = false;
             checkBox11.Checked = false;
             checkBox12.Checked = false;
+            checkBox13.Checked = false;
             textBox1.AppendText("------------New Show Case--------------\r\n\r\n");
             textBox2.Clear();
             textBox3.Clear();
@@ -322,29 +428,8 @@ namespace WindowsFormsApplication6
 
             string str = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
             IniFile ini = new IniFile(str + "\\USBTest.ini");
-            ini.Write("AUTO", "0");
+            ini.Write("AUTO", "1");
 
-        }
-
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox5_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox9_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void  checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            
         }
 
         private void checkBox13_CheckedChanged(object sender, EventArgs e)
@@ -474,11 +559,11 @@ namespace WindowsFormsApplication6
             string date = DateTime.Now.ToString("MM-dd-yyyy HH:mm:ss");
             if (log_test.log_flag == 0)
             {
-                File.AppendAllText("USBTest_result.log", date + "--------->PASS\r\n");
+                File.AppendAllText("USBTest_result.log", "\r\n" + date  + "--------->PASS\r\n");
             }
             else
             {
-                File.AppendAllText("USBTest_result.log", date + "--------->FAIL\r\n");
+                File.AppendAllText("USBTest_result.log", "\r\n" + date + "--------->FAIL\r\n");
             }
 
         }
@@ -497,7 +582,7 @@ namespace WindowsFormsApplication6
             ini.Write("AUTO", "1");
         }
 
-        int timeLeft=3;
+        int timeLeft=1;
         
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -512,6 +597,26 @@ namespace WindowsFormsApplication6
             {
                 CloseWindow();
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
 
    

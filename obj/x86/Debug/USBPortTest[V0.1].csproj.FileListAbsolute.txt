@@ -1,0 +1,9 @@
+D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest[V0.1]\obj\x86\Debug\WindowsFormsApplication6.exe
+D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest[V0.1]\obj\x86\Debug\WindowsFormsApplication6.pdb
+D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest[V0.1]\bin\Debug\Properties\bmp00005.bmp
+D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest[V0.1]\bin\Debug\WindowsFormsApplication6.exe
+D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest[V0.1]\bin\Debug\WindowsFormsApplication6.pdb
+D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest[V0.1]\obj\x86\Debug\WindowsFormsApplication6.Form1.resources
+D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest[V0.1]\obj\x86\Debug\WindowsFormsApplication6.Properties.Resources.resources
+D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest[V0.1]\obj\x86\Debug\USBPortTest[V0.1].csproj.GenerateResource.Cache
+D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest[V0.1]\obj\x86\Debug\USBPortTest[V0.1].csprojResolveAssemblyReference.cache

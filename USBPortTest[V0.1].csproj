@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8F58B438-0CDE-4E3A-B72A-1FA231CD71E0}</ProjectGuid>
+    <ProjectGuid>{1D3C9961-D10C-4966-AAAE-B765CB5E0A22}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WindowsFormsApplication6</RootNamespace>
