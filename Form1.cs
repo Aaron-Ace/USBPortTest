@@ -611,24 +611,17 @@ namespace WindowsFormsApplication6
         }
         public static string CreateUSBFileTest(string path)
         {
-            try
-            {
+            
                 StreamWriter FileCreate = new StreamWriter(path + "test.txt");
                 FileCreate.Write("USBTest");
                 FileCreate.Close();
-                Thread.Sleep(10);
                 System.IO.StreamReader FileCheck = new System.IO.StreamReader(path + "test.txt");
-                String line;
-                line = FileCheck.ReadLine();
-                if (line == "USBTest") { return "0"; }
+                FileInfo fInfo = new FileInfo(path + "test.txt");
+                string length = fInfo.Length.ToString();
+                if (length == "7") { return "0"; }
                 else { return "1"; }
                 FileCheck.Close();
-                FileInfo fInfo = new FileInfo(path + "test.txt");
-                long length = fInfo.Length;
                 System.IO.File.Delete(path + "test.txt");
-                
-            }
-            catch { return "FALSE"; }
 
         }
   
