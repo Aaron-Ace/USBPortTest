@@ -24,9 +24,37 @@ namespace WindowsFormsApplication6
             
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            string str = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+            IniFile ini = new IniFile(str + "\\USBTest.ini");
+            if (ini.Read("AUTO") == "0")
+            {
+                if (ini.Read("USB1") == "1") { checkBox1.Checked = true; } else { checkBox1.Checked = false; }
+                if (ini.Read("USB2") == "1") { checkBox2.Checked = true; } else { checkBox2.Checked = false; }
+                if (ini.Read("USB3") == "1") { checkBox3.Checked = true; } else { checkBox3.Checked = false; }
+                if (ini.Read("USB4") == "1") { checkBox5.Checked = true; } else { checkBox5.Checked = false; }
+                if (ini.Read("USB5") == "1") { checkBox4.Checked = true; } else { checkBox4.Checked = false; }
+                if (ini.Read("USB6") == "1") { checkBox6.Checked = true; } else { checkBox6.Checked = false; }
+                if (ini.Read("USB7") == "1") { checkBox7.Checked = true; } else { checkBox7.Checked = false; }
+                if (ini.Read("USB8") == "1") { checkBox8.Checked = true; } else { checkBox8.Checked = false; }
+                if (ini.Read("USB9") == "1") { checkBox9.Checked = true; } else { checkBox9.Checked = false; }
+                if (ini.Read("USB10") == "1") { checkBox10.Checked = true; } else { checkBox10.Checked = false; }
+                if (ini.Read("USB11") == "1") { checkBox11.Checked = true; } else { checkBox11.Checked = false; }
+                if (ini.Read("USB12") == "1") { checkBox12.Checked = true; } else { checkBox12.Checked = false; }
+                button1_Click(sender, e);
+
+
+            }
+
+        }
+
         //Show Botton
         private void button2_Click(object sender, EventArgs e)
         {
+            string str = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+            IniFile ini = new IniFile(str + "\\USBTest.ini");
+
             //清理全部，返回預設值
             CleanAll();
 
@@ -548,20 +576,18 @@ namespace WindowsFormsApplication6
                 string str = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
                 IniFile ini = new IniFile(str + "\\USBTest.ini");
                 ini.Write("AUTO", "0");
-                if (checkBox1.Checked == true) { ini.Write("USB1", "1"); } else { ini.Write("USB1", "0"); }
-                if (checkBox2.Checked == true) { ini.Write("USB2", "1"); } else { ini.Write("USB2", "0"); }
-                if (checkBox3.Checked == true) { ini.Write("USB3", "1"); } else { ini.Write("USB3", "0"); }
-                if (checkBox5.Checked == true) { ini.Write("USB4", "1"); } else { ini.Write("USB4", "0"); }
-                if (checkBox4.Checked == true) { ini.Write("USB5", "1"); } else { ini.Write("USB5", "0"); }
-                if (checkBox6.Checked == true) { ini.Write("USB6", "1"); } else { ini.Write("USB6", "0"); }
-                if (checkBox7.Checked == true) { ini.Write("USB7", "1"); } else { ini.Write("USB7", "0"); }
-                if (checkBox8.Checked == true) { ini.Write("USB8", "1"); } else { ini.Write("USB8", "0"); }
-                if (checkBox9.Checked == true) { ini.Write("USB9", "1"); } else { ini.Write("USB9", "0"); }
+                if (checkBox1.Checked  == true) { ini.Write("USB1" , "1"); } else { ini.Write("USB1",  "0"); }
+                if (checkBox2.Checked  == true) { ini.Write("USB2" , "1"); } else { ini.Write("USB2",  "0"); }
+                if (checkBox3.Checked  == true) { ini.Write("USB3" , "1"); } else { ini.Write("USB3",  "0"); }
+                if (checkBox5.Checked  == true) { ini.Write("USB4" , "1"); } else { ini.Write("USB4",  "0"); }
+                if (checkBox4.Checked  == true) { ini.Write("USB5" , "1"); } else { ini.Write("USB5",  "0"); }
+                if (checkBox6.Checked  == true) { ini.Write("USB6" , "1"); } else { ini.Write("USB6",  "0"); }
+                if (checkBox7.Checked  == true) { ini.Write("USB7" , "1"); } else { ini.Write("USB7",  "0"); }
+                if (checkBox8.Checked  == true) { ini.Write("USB8" , "1"); } else { ini.Write("USB8",  "0"); }
+                if (checkBox9.Checked  == true) { ini.Write("USB9" , "1"); } else { ini.Write("USB9",  "0"); }
                 if (checkBox10.Checked == true) { ini.Write("USB10", "1"); } else { ini.Write("USB10", "0"); }
                 if (checkBox11.Checked == true) { ini.Write("USB11", "1"); } else { ini.Write("USB11", "0"); }
-                if (checkBox12.Checked == true) { ini.Write("USB12", "1"); } else { ini.Write("USB12", "0"); }
-
-                
+                if (checkBox12.Checked == true) { ini.Write("USB12", "1"); } else { ini.Write("USB12", "0"); }                
             }
             else //取消開機自啟動  
             {
@@ -577,35 +603,6 @@ namespace WindowsFormsApplication6
                 IniFile ini = new IniFile(str + "\\USBTest.ini");
                 ini.Write("AUTO", "1");
             }
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            string str = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
-            IniFile ini = new IniFile(str+"\\USBTest.ini");
-            if (ini.Read("AUTO") == "0")
-            {
-                if (ini.Read("USB1") == "1") { checkBox1.Checked = true; } else { checkBox1.Checked = false; }
-                if (ini.Read("USB2") == "1") { checkBox2.Checked = true; } else { checkBox2.Checked = false; }
-                if (ini.Read("USB3") == "1") { checkBox3.Checked = true; } else { checkBox3.Checked = false; }
-                if (ini.Read("USB4") == "1") { checkBox5.Checked = true; } else { checkBox5.Checked = false; }
-                if (ini.Read("USB5") == "1") { checkBox4.Checked = true; } else { checkBox4.Checked = false; }
-                if (ini.Read("USB6") == "1") { checkBox6.Checked = true; } else { checkBox6.Checked = false; }
-                if (ini.Read("USB7") == "1") { checkBox7.Checked = true; } else { checkBox7.Checked = false; }
-                if (ini.Read("USB8") == "1") { checkBox8.Checked = true; } else { checkBox8.Checked = false; }
-                if (ini.Read("USB9") == "1") { checkBox9.Checked = true; } else { checkBox9.Checked = false; }
-                if (ini.Read("USB10") == "1") { checkBox10.Checked = true; } else { checkBox10.Checked = false; }
-                if (ini.Read("USB11") == "1") { checkBox11.Checked = true; } else { checkBox11.Checked = false; }
-                if (ini.Read("USB12") == "1") { checkBox12.Checked = true; } else { checkBox12.Checked = false; }
-                button1_Click(sender,e);
-                
-
-            }
-
-
-            
-            
 
         }
 
@@ -708,10 +705,11 @@ namespace WindowsFormsApplication6
             ini.Write("AUTO", "1");
         }
 
-        int timeLeft=1;
+        
         
         private void timer1_Tick(object sender, EventArgs e)
         {
+            int timeLeft = 1;
             timer1.Start();
 
             if (timeLeft != 0)
