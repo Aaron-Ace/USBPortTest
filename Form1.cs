@@ -110,6 +110,7 @@ namespace WindowsFormsApplication6
 
             //添加磁碟名
             DiskName();
+            CreateUSBFile_textBox_added();
 
             //switch 更替不同物件
             int count = 1;
@@ -251,79 +252,118 @@ namespace WindowsFormsApplication6
 
             //add Time
             string date = DateTime.Now.ToString("MM-dd-yyyy HH:mm:ss");
-            textBox1.AppendText("\r\n"  +  date + "\r\n\r\n");
+            textBox1.AppendText("\r\n"  + "Time :" +  date + "\r\n\r\n");
+
+            textBox1.AppendText("Loading content...\r\n\r\n");
+            
 
             //add USB PORT Each result
             if (checkBox1.Checked == true)
             {
-                if (textBox14.Text == "0") { textBox1.AppendText("USB Port 1 ----------> PASS\r\n"); }
-                else { textBox1.AppendText("USB Port 1 ----------> FAIL\r\n"); }
+                textBox1.AppendText("Create USBTest.txt File\r\n");
+                textBox1.AppendText("Test Return Result\r\n");
+                textBox1.AppendText("Delete USBTest.txt File\r\n");
+                if (textBox14.Text == "00") { textBox1.AppendText("USB Port 1 -------------> PASS\r\n"); }
+                else { textBox1.AppendText("USB Port 1 -------------> FAIL\r\n"); }
                 flag_testcheck = 1;
             }
             if (checkBox2.Checked == true)
             {
-                if (textBox15.Text == "0") { textBox1.AppendText("USB Port 2 ----------> PASS\r\n"); }
-                else { textBox1.AppendText("USB Port 2 ----------> FAIL\r\n"); }
+                textBox1.AppendText("Create USBTest.txt File\r\n");
+                textBox1.AppendText("Test Return Result\r\n");
+                textBox1.AppendText("Delete USBTest.txt File\r\n");
+                if (textBox15.Text == "00") { textBox1.AppendText("USB Port 2 -------------> PASS\r\n"); }
+                else { textBox1.AppendText("USB Port 2 -------------> FAIL\r\n"); }
                 flag_testcheck = 1;
             }
             if (checkBox3.Checked == true)
             {
-                if (textBox16.Text == "0") { textBox1.AppendText("USB Port 3 ----------> PASS\r\n"); }
-                else { textBox1.AppendText("USB Port 3 ----------> FAIL\r\n"); }
+                textBox1.AppendText("Create USBTest.txt File\r\n");
+                textBox1.AppendText("Test Return Result\r\n");
+                textBox1.AppendText("Delete USBTest.txt File\r\n");
+                if (textBox16.Text == "00") { textBox1.AppendText("USB Port 3 -------------> PASS\r\n"); }
+                else { textBox1.AppendText("USB Port 3 -------------> FAIL\r\n"); }
                 flag_testcheck = 1;
             }
             if (checkBox4.Checked == true)
             {
-                if (textBox17.Text == "0") { textBox1.AppendText("USB Port 4 ----------> PASS\r\n"); }
-                else { textBox1.AppendText("USB Port 4 ----------> FAIL\r\n"); }
+                textBox1.AppendText("Create USBTest.txt File\r\n");
+                textBox1.AppendText("Test Return Result\r\n");
+                textBox1.AppendText("Delete USBTest.txt File\r\n");
+                if (textBox17.Text == "00") { textBox1.AppendText("USB Port 4 -------------> PASS\r\n"); }
+                else { textBox1.AppendText("USB Port 4 -------------> FAIL\r\n"); }
                 flag_testcheck = 1;
             }
             if (checkBox5.Checked == true)
             {
-                if (textBox18.Text == "0") { textBox1.AppendText("USB Port 5 ----------> PASS\r\n"); }
-                else { textBox1.AppendText("USB Port 5 ----------> FAIL\r\n"); }
+                textBox1.AppendText("Create USBTest.txt File\r\n");
+                textBox1.AppendText("Test Return Result\r\n");
+                textBox1.AppendText("Delete USBTest.txt File\r\n");
+                if (textBox18.Text == "00") { textBox1.AppendText("USB Port 5 -------------> PASS\r\n"); }
+                else { textBox1.AppendText("USB Port 5 -------------> FAIL\r\n"); }
                 flag_testcheck = 1;
             }
             if (checkBox6.Checked == true)
             {
-                if (textBox19.Text == "0") { textBox1.AppendText("USB Port 6 ----------> PASS\r\n"); }
-                else { textBox1.AppendText("USB Port 6 ----------> FAIL\r\n"); }
+                textBox1.AppendText("Create USBTest.txt File\r\n");
+                textBox1.AppendText("Test Return Result\r\n");
+                textBox1.AppendText("Delete USBTest.txt File\r\n");
+                if (textBox19.Text == "00") { textBox1.AppendText("USB Port 6 -------------> PASS\r\n"); }
+                else { textBox1.AppendText("USB Port 6 -------------> FAIL\r\n"); }
                 flag_testcheck = 1;
             }
             if (checkBox7.Checked == true)
             {
-                if (textBox20.Text == "0") { textBox1.AppendText("USB Port 7 ----------> PASS\r\n"); }
-                else { textBox1.AppendText("USB Port 7 ----------> FAIL\r\n"); }
+                textBox1.AppendText("Create USBTest.txt File\r\n");
+                textBox1.AppendText("Test Return Result\r\n");
+                textBox1.AppendText("Delete USBTest.txt File\r\n");
+                if (textBox20.Text == "00") { textBox1.AppendText("USB Port 7 -------------> PASS\r\n"); }
+                else { textBox1.AppendText("USB Port 7 -------------> FAIL\r\n"); }
                 flag_testcheck = 1;
             }
             if (checkBox8.Checked == true)
             {
-                if (textBox21.Text == "0") { textBox1.AppendText("USB Port 8 ----------> PASS\r\n"); }
-                else { textBox1.AppendText("USB Port 8 ----------> FAIL\r\n"); }
+                textBox1.AppendText("Create USBTest.txt File\r\n");
+                textBox1.AppendText("Test Return Result\r\n");
+                textBox1.AppendText("Delete USBTest.txt File\r\n");
+                if (textBox21.Text == "00") { textBox1.AppendText("USB Port 8 -------------> PASS\r\n"); }
+                else { textBox1.AppendText("USB Port 8 -------------> FAIL\r\n"); }
                 flag_testcheck = 1;
             }
             if (checkBox9.Checked == true)
             {
-                if (textBox22.Text == "0") { textBox1.AppendText("USB Port 9 ----------> PASS\r\n"); }
-                else { textBox1.AppendText("USB Port 9 ----------> FAIL\r\n"); }
+                textBox1.AppendText("Create USBTest.txt File\r\n");
+                textBox1.AppendText("Test Return Result\r\n");
+                textBox1.AppendText("Delete USBTest.txt File\r\n");
+                if (textBox22.Text == "00") { textBox1.AppendText("USB Port 9 -------------> PASS\r\n"); }
+                else { textBox1.AppendText("USB Port 9 -------------> FAIL\r\n"); }
                 flag_testcheck = 1;
             }
             if (checkBox10.Checked == true)
             {
-                if (textBox23.Text == "0") { textBox1.AppendText("USB Port 10 ---------> PASS\r\n"); }
-                else { textBox1.AppendText("USB Port 10 ---------> FAIL\r\n"); }
+                textBox1.AppendText("Create USBTest.txt File\r\n");
+                textBox1.AppendText("Test Return Result\r\n");
+                textBox1.AppendText("Delete USBTest.txt File\r\n");
+                if (textBox23.Text == "00") { textBox1.AppendText("USB Port 10 ------------> PASS\r\n"); }
+                else { textBox1.AppendText("USB Port 10 ------------> FAIL\r\n"); }
                 flag_testcheck = 1;
             }
             if (checkBox11.Checked == true)
             {
-                if (textBox24.Text == "0") { textBox1.AppendText("USB Port 11 ---------> PASS\r\n"); }
-                else { textBox1.AppendText("USB Port 11 ---------> FAIL\r\n"); }
+                textBox1.AppendText("Create USBTest.txt File\r\n");
+                textBox1.AppendText("Test Return Result\r\n");
+                textBox1.AppendText("Delete USBTest.txt File\r\n");
+                if (textBox24.Text == "00") { textBox1.AppendText("USB Port 11 ------------> PASS\r\n"); }
+                else { textBox1.AppendText("USB Port 11 ------------> FAIL\r\n"); }
                 flag_testcheck = 1;
             }
             if (checkBox12.Checked == true)
             {
-                if (textBox25.Text == "0") { textBox1.AppendText("USB Port 12 ---------> PASS\r\n"); }
-                else { textBox1.AppendText("USB Port 12 ---------> FAIL\r\n"); }
+                textBox1.AppendText("Create USBTest.txt File\r\n");
+                textBox1.AppendText("Test Return Result\r\n");
+                textBox1.AppendText("Delete USBTest.txt File\r\n");
+                if (textBox25.Text == "00") { textBox1.AppendText("USB Port 12 ------------> PASS\r\n"); }
+                else { textBox1.AppendText("USB Port 12 ------------> FAIL\r\n"); }
                 flag_testcheck = 1;
             }
 
@@ -334,11 +374,11 @@ namespace WindowsFormsApplication6
             }
             else if (log_test.log_flag == 0)
             {
-                textBox1.AppendText("\r\nTest  Result ----------> PASS\r\n");
+                textBox1.AppendText("\r\nTest  Result ----------------> PASS\r\n");
             }
             else
             {
-                textBox1.AppendText("\r\nTest  Result ----------> FAIL\r\n");
+                textBox1.AppendText("\r\nTest  Result ----------------> FAIL\r\n");
             }
 
             //製作結果檔
@@ -350,6 +390,35 @@ namespace WindowsFormsApplication6
             if (log_test.log_flag == 0 && ini.Read("AUTO") == "0")
             {timer1_Tick(sender, e);}
            
+        }
+        public void CreateUSBFile_textBox_added()
+        {
+            int count = 0;
+
+            DriveInfo[] allDrives = DriveInfo.GetDrives();
+            foreach (DriveInfo d in allDrives)
+            {
+                if (d.DriveType.ToString() != "Fixed")
+                {
+                    count += 1;
+                    switch (count)
+                    {
+                        case 1:   textBox14.Text += CreateUSBFileTest(d.Name); break;
+                        case 2:   textBox15.Text += CreateUSBFileTest(d.Name); break;
+                        case 3:   textBox16.Text += CreateUSBFileTest(d.Name); break;
+                        case 4:   textBox17.Text += CreateUSBFileTest(d.Name); break;
+                        case 5:   textBox18.Text += CreateUSBFileTest(d.Name); break;
+                        case 6:   textBox19.Text += CreateUSBFileTest(d.Name); break;
+                        case 7:   textBox20.Text += CreateUSBFileTest(d.Name); break;
+                        case 8:   textBox21.Text += CreateUSBFileTest(d.Name); break;
+                        case 9:   textBox22.Text += CreateUSBFileTest(d.Name); break;
+                        case 10:  textBox23.Text += CreateUSBFileTest(d.Name); break;
+                        case 11:  textBox24.Text += CreateUSBFileTest(d.Name); break;
+                        case 12:  textBox25.Text += CreateUSBFileTest(d.Name); break;
+
+                    }
+                }
+            }
         }
 
         public void DiskName()
@@ -364,18 +433,18 @@ namespace WindowsFormsApplication6
                     count_1 += 1;
                     switch (count_1)
                     {
-                        case 1: textBox2.Text = (d.Name);  textBox14.Text += CreateUSBFileTest(d.Name); break;
-                        case 2: textBox3.Text = (d.Name);  textBox15.Text += CreateUSBFileTest(d.Name); break;
-                        case 3: textBox4.Text = (d.Name);  textBox16.Text += CreateUSBFileTest(d.Name); break;
-                        case 4: textBox5.Text = (d.Name);  textBox17.Text += CreateUSBFileTest(d.Name); break;
-                        case 5: textBox6.Text = (d.Name);  textBox18.Text += CreateUSBFileTest(d.Name); break;
-                        case 6: textBox7.Text = (d.Name);  textBox19.Text += CreateUSBFileTest(d.Name); break;
-                        case 7: textBox8.Text = (d.Name);  textBox20.Text += CreateUSBFileTest(d.Name); break;
-                        case 8: textBox9.Text = (d.Name);  textBox21.Text += CreateUSBFileTest(d.Name); break;
-                        case 9: textBox10.Text = (d.Name);  textBox22.Text += CreateUSBFileTest(d.Name); break;
-                        case 10: textBox11.Text = (d.Name); textBox23.Text += CreateUSBFileTest(d.Name); break;
-                        case 11: textBox12.Text = (d.Name); textBox24.Text += CreateUSBFileTest(d.Name); break;
-                        case 12: textBox13.Text = (d.Name); textBox25.Text += CreateUSBFileTest(d.Name); break;
+                        case 1:  textBox2.Text  = (d.Name);  break;
+                        case 2:  textBox3.Text  = (d.Name);  break;
+                        case 3:  textBox4.Text  = (d.Name);  break;
+                        case 4:  textBox5.Text  = (d.Name);  break;
+                        case 5:  textBox6.Text  = (d.Name);  break;
+                        case 6:  textBox7.Text  = (d.Name);  break;
+                        case 7:  textBox8.Text  = (d.Name);  break;
+                        case 8:  textBox9.Text  = (d.Name);  break;
+                        case 9:  textBox10.Text = (d.Name);  break;
+                        case 10: textBox11.Text = (d.Name);  break;
+                        case 11: textBox12.Text = (d.Name);  break;
+                        case 12: textBox13.Text = (d.Name);  break;
 
                     }
                 }
@@ -611,19 +680,29 @@ namespace WindowsFormsApplication6
         }
         public static string CreateUSBFileTest(string path)
         {
-            
-                StreamWriter FileCreate = new StreamWriter(path + "test.txt");
-                FileCreate.Write("USBTest");
-                FileCreate.Close();
-                System.IO.StreamReader FileCheck = new System.IO.StreamReader(path + "test.txt");
-                FileInfo fInfo = new FileInfo(path + "test.txt");
-                string length = fInfo.Length.ToString();
-                if (length == "7") { return "0"; }
+
+            try
+            {
+                // Create a file to write to.
+                System.IO.StreamWriter File = new System.IO.StreamWriter(path + "USBTest.txt");
+                File.WriteLine("USBTest");
+                File.Close();
+
+                FileInfo fInfo = new FileInfo(path + "USBTest.txt");
+                string length = "0";
+                length = fInfo.Length.ToString();
+                fInfo.Delete();
+
+                if (length == "9") { return "0"; }
                 else { return "1"; }
-                FileCheck.Close();
-                System.IO.File.Delete(path + "test.txt");
+            }
+            catch
+            {
+                return "1";
+            }
 
         }
+
   
     }
 }
