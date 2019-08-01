@@ -105,6 +105,11 @@ namespace WindowsFormsApplication6
         //Test Botton
         public void button1_Click(object sender, EventArgs e)
         {
+            //PictureBox 返回預設
+            CleanPicBox();
+
+            CleanTextBox14to25();
+
             //添加拉鈕
             textBox1.ScrollBars = ScrollBars.Vertical;
 
@@ -115,11 +120,14 @@ namespace WindowsFormsApplication6
             //switch 更替不同物件
             int count = 1;
 
+            //logtestflag 返回預設值
+            log_test.log_flag = 0;
+
             //USB Message storage devices show at list 
             ManagementObjectSearcher device_searcher = new ManagementObjectSearcher("SELECT * FROM Win32_USBHub");
             foreach (ManagementObject usb_device in device_searcher.Get())
             {
-                //將資訊添加在條列式textBox中
+                //將資訊添加在條列式textBox中(textBox14~25 errorcode 儲存)
                 switch (count)
                 {
                     case 1:
@@ -164,18 +172,18 @@ namespace WindowsFormsApplication6
 
             //Test whether checkBox check or not
             int[] CheckBoxBool = new int[13];
-            if (checkBox1.Checked) { CheckBoxBool[1]  = 1; }
-            if (checkBox2.Checked) { CheckBoxBool[2]  = 1; }
-            if (checkBox3.Checked) { CheckBoxBool[3]  = 1; }
-            if (checkBox4.Checked) { CheckBoxBool[4]  = 1; }
-            if (checkBox5.Checked) { CheckBoxBool[5]  = 1; }
-            if (checkBox6.Checked) { CheckBoxBool[6]  = 1; }
-            if (checkBox7.Checked) { CheckBoxBool[7]  = 1; }
-            if (checkBox8.Checked) { CheckBoxBool[8]  = 1; }
-            if (checkBox9.Checked) { CheckBoxBool[9]  = 1; }
-            if (checkBox10.Checked){ CheckBoxBool[10] = 1; }
-            if (checkBox11.Checked){ CheckBoxBool[11] = 1; }
-            if (checkBox12.Checked){ CheckBoxBool[12] = 1; }
+            if (checkBox1.Checked) { CheckBoxBool[1] = 1; } else { CheckBoxBool[1] = 0; }
+            if (checkBox2.Checked) { CheckBoxBool[2] = 1; } else { CheckBoxBool[2] = 0; }
+            if (checkBox3.Checked) { CheckBoxBool[3] = 1; } else { CheckBoxBool[3] = 0; }
+            if (checkBox4.Checked) { CheckBoxBool[4] = 1; } else { CheckBoxBool[4] = 0; }
+            if (checkBox5.Checked) { CheckBoxBool[5] = 1; } else { CheckBoxBool[5] = 0; }
+            if (checkBox6.Checked) { CheckBoxBool[6] = 1; } else { CheckBoxBool[6] = 0; }
+            if (checkBox7.Checked) { CheckBoxBool[7] = 1; } else { CheckBoxBool[7] = 0; }
+            if (checkBox8.Checked) { CheckBoxBool[8] = 1; } else { CheckBoxBool[8] = 0; }
+            if (checkBox9.Checked) { CheckBoxBool[9] = 1; } else { CheckBoxBool[9] = 0; }
+            if (checkBox10.Checked) { CheckBoxBool[10] = 1; } else { CheckBoxBool[10] = 0; }
+            if (checkBox11.Checked) { CheckBoxBool[11] = 1; } else { CheckBoxBool[11] = 0; }
+            if (checkBox12.Checked) { CheckBoxBool[12] = 1; } else { CheckBoxBool[12] = 0; }
             
             //測試Error Code 是否返回0(正常)
             for (int i = 1;i <= 12; i++)
@@ -370,7 +378,8 @@ namespace WindowsFormsApplication6
             //add USB Port Total Result
             if (flag_testcheck == 0 && log_test.log_flag == 0)
             {
-                textBox1.AppendText("\r\nWarning !!! Please Check At Least One !\r\n");
+                MessageBox.Show("Warning !!! Please Check At Least One !");
+                button2_Click(sender, e);
             }
             else if (log_test.log_flag == 0)
             {
@@ -481,18 +490,17 @@ namespace WindowsFormsApplication6
             textBox11.Clear();
             textBox12.Clear();
             textBox13.Clear();
-            textBox14.Clear();
-            textBox15.Clear();
-            textBox16.Clear();
-            textBox17.Clear();
-            textBox18.Clear();
-            textBox19.Clear();
-            textBox20.Clear();
-            textBox21.Clear();
-            textBox22.Clear();
-            textBox23.Clear();
-            textBox24.Clear();
-            textBox25.Clear();
+            CleanTextBox14to25();
+            CleanPicBox();
+
+            string str = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+            IniFile ini = new IniFile(str + "\\USBTest.ini");
+            ini.Write("AUTO", "1");
+
+        }
+
+        public void CleanPicBox()
+        {
             pictureBox1.Image = Properties.Resources.bmp00002;
             pictureBox2.Image = Properties.Resources.bmp00002;
             pictureBox3.Image = Properties.Resources.bmp00002;
@@ -505,11 +513,22 @@ namespace WindowsFormsApplication6
             pictureBox10.Image = Properties.Resources.bmp00002;
             pictureBox11.Image = Properties.Resources.bmp00002;
             pictureBox12.Image = Properties.Resources.bmp00002;
+        }
 
-            string str = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
-            IniFile ini = new IniFile(str + "\\USBTest.ini");
-            ini.Write("AUTO", "1");
-
+        public void CleanTextBox14to25()
+        {
+            textBox14.Clear();
+            textBox15.Clear();
+            textBox16.Clear();
+            textBox17.Clear();
+            textBox18.Clear();
+            textBox19.Clear();
+            textBox20.Clear();
+            textBox21.Clear();
+            textBox22.Clear();
+            textBox23.Clear();
+            textBox24.Clear();
+            textBox25.Clear();
         }
 
         private void checkBox13_CheckedChanged(object sender, EventArgs e)
@@ -636,14 +655,41 @@ namespace WindowsFormsApplication6
 
         public void CreateLogfile()
         {
-            string date = DateTime.Now.ToString("MM-dd-yyyy HH:mm:ss");
+            System.DateTime currentTime = new System.DateTime();
+            currentTime = System.DateTime.Now;
+            string strTimeYear   = string.Format("{0:D4}", currentTime.Year );
+            string strTimeMonth  = string.Format("{0:D2}", currentTime.Month );
+            string strTimeDay    = string.Format("{0:D2}", currentTime.Day   );
+            string strTimeHour   = string.Format("{0:D2}", currentTime.Hour  );
+            string strTimeMinute = string.Format("{0:D2}", currentTime.Minute);
+            string strTimeSecond = string.Format("{0:D2}", currentTime.Second);
+
+            string logfilename = "USB_Result_" + strTimeYear + strTimeMonth + strTimeDay + ".log";
+            if( false == System.IO.File.Exists(Directory.GetCurrentDirectory() + "\\" + logfilename))
+            {
+                try
+                {
+                    StreamWriter writer = new StreamWriter(Directory.GetCurrentDirectory() + "\\" + logfilename, true);
+                    writer.Write("USB Port Test [ V0.1] : \r\n");
+                    writer.Write("-------------------------------------- \r\n");
+                    writer.Write("Time\tResult\r\n");
+                    writer.Close();
+
+                }
+                catch
+                {
+                    MessageBox.Show("Create File.log Error");
+                }
+            }
+
+            string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             if (log_test.log_flag == 0)
             {
-                File.AppendAllText("USBTest_result.log", "\r\n" + date  + "--------->PASS\r\n");
+                File.AppendAllText(logfilename, "\r\n" + date  + "--------->PASS\r\n");
             }
             else
             {
-                File.AppendAllText("USBTest_result.log", "\r\n" + date + "--------->FAIL\r\n");
+                File.AppendAllText(logfilename, "\r\n" + date + "--------->FAIL\r\n");
             }
 
         }
