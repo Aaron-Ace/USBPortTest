@@ -42,6 +42,9 @@
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>USB.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -96,6 +99,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Properties\bmp00006.bmp" />
+    <Content Include="USB.ico" />
+    <None Include="Properties\bmpLogo.bmp" />
     <None Include="res\bmp00005.bmp" />
     <None Include="res\bmp00006.bmp" />
   </ItemGroup>
