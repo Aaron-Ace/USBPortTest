@@ -80,6 +80,7 @@
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.textBox18 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.checkBox13 = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -87,7 +88,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
@@ -620,6 +620,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Content";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(535, 53);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(59, 30);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "Save";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // checkBox13
             // 
             this.checkBox13.AutoSize = true;
@@ -655,7 +665,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(59, 26);
             this.button2.TabIndex = 2;
-            this.button2.Text = "Show";
+            this.button2.Text = "Scan";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -681,16 +691,6 @@
             // 
             this.timer1.Interval = 3000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(535, 53);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(59, 30);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Save";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 

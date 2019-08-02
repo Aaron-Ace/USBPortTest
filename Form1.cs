@@ -24,7 +24,7 @@ namespace WindowsFormsApplication6
             
         }
 
-        //Show Botton
+        //SCAN Botton
         private void button2_Click(object sender, EventArgs e)
         {
             //清理全部，返回預設值
@@ -46,7 +46,8 @@ namespace WindowsFormsApplication6
                 //如果符合USB類型
                 if (usb_device.Properties["Name"].Value.ToString() == "USB Mass Storage Device")
                 {
-                    textBox1.AppendText(usb_device.Properties["Caption"].Value.ToString() + "\n");                
+
+                    //textBox1.AppendText(usb_device.Properties["Caption"].Value.ToString() + "\n");                
 
                     count += 1;
                     
@@ -95,7 +96,7 @@ namespace WindowsFormsApplication6
 
             }
             //計算有多少個USB Devices 
-            textBox1.AppendText("Total Devices: " + count + "\r\n");
+            textBox1.AppendText("Total Number of USB Key Devices: " + count + "\r\n");
             
             //如果count為0 則無USB Devices 
             if (count == 0)
@@ -396,7 +397,7 @@ namespace WindowsFormsApplication6
             //自動程式關閉
             string str1 = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
             IniFile ini = new IniFile(str1 + "\\USBTest.ini");
-            if (log_test.log_flag == 0 && ini.Read("AUTO") == "0")
+            if (log_test.log_flag == 0 && ini.Read("AUTO") == "1")
             {timer1_Tick(sender, e);}
            
         }
@@ -418,6 +419,7 @@ namespace WindowsFormsApplication6
             if (checkBox10.Checked == true) { ini.Write("USB10", "1"); } else { ini.Write("USB10", "0"); }
             if (checkBox11.Checked == true) { ini.Write("USB11", "1"); } else { ini.Write("USB11", "0"); }
             if (checkBox12.Checked == true) { ini.Write("USB12", "1"); } else { ini.Write("USB12", "0"); }
+            if (checkBox13.Checked == true) { ini.Write("AUTO", "1"); } else { ini.Write("AUTO", "0"); }
 
         }
 
@@ -458,12 +460,12 @@ namespace WindowsFormsApplication6
             DriveInfo[] allDrives = DriveInfo.GetDrives();
             foreach (DriveInfo d in allDrives)
             {
-                if (d.DriveType.ToString() != "Fixed")
+                if (d.DriveType.ToString() == "Removable")
                 {
                     count_1 += 1;
                     switch (count_1)
                     {
-                        case 1:  textBox2.Text  = (d.Name);  break;
+                        case 1: textBox2.Text = (d.Name);    break;
                         case 2:  textBox3.Text  = (d.Name);  break;
                         case 3:  textBox4.Text  = (d.Name);  break;
                         case 4:  textBox5.Text  = (d.Name);  break;
@@ -498,7 +500,7 @@ namespace WindowsFormsApplication6
             checkBox11.Checked = false;
             checkBox12.Checked = false;
             checkBox13.Checked = false;
-            textBox1.AppendText("------------New Show Case--------------\r\n\r\n");
+            textBox1.AppendText("------------Scan USB Key--------------\r\n\r\n");
             textBox2.Clear();
             textBox3.Clear();
             textBox4.Clear();
@@ -513,10 +515,6 @@ namespace WindowsFormsApplication6
             textBox13.Clear();
             CleanTextBox14to25();
             CleanPicBox();
-
-            string str = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
-            IniFile ini = new IniFile(str + "\\USBTest.ini");
-            ini.Write("AUTO", "1");
 
         }
 
@@ -568,7 +566,7 @@ namespace WindowsFormsApplication6
                 //寫入ini檔為true 
                 string str = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
                 IniFile ini = new IniFile(str + "\\USBTest.ini");
-                ini.Write("AUTO", "0");
+                ini.Write("AUTO", "1");
                 if (checkBox1.Checked == true) { ini.Write("USB1", "1"); } else { ini.Write("USB1", "0"); }
                 if (checkBox2.Checked == true) { ini.Write("USB2", "1"); } else { ini.Write("USB2", "0"); }
                 if (checkBox3.Checked == true) { ini.Write("USB3", "1"); } else { ini.Write("USB3", "0"); }
@@ -596,7 +594,9 @@ namespace WindowsFormsApplication6
                 //寫入ini檔為false
                 string str = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
                 IniFile ini = new IniFile(str + "\\USBTest.ini");
-                ini.Write("AUTO", "1");
+                ini.Write("AUTO", "0");
+
+                timer1.Stop();
             }
 
         }
@@ -605,8 +605,9 @@ namespace WindowsFormsApplication6
         {
             string str = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
             IniFile ini = new IniFile(str+"\\USBTest.ini");
-            if (ini.Read("AUTO") == "0")
+            if (ini.Read("AUTO") == "1")
             {
+                
                 if (ini.Read("USB1") == "1") { checkBox1.Checked = true; } else { checkBox1.Checked = false; }
                 if (ini.Read("USB2") == "1") { checkBox2.Checked = true; } else { checkBox2.Checked = false; }
                 if (ini.Read("USB3") == "1") { checkBox3.Checked = true; } else { checkBox3.Checked = false; }
@@ -620,6 +621,7 @@ namespace WindowsFormsApplication6
                 if (ini.Read("USB11") == "1") { checkBox11.Checked = true; } else { checkBox11.Checked = false; }
                 if (ini.Read("USB12") == "1") { checkBox12.Checked = true; } else { checkBox12.Checked = false; }
                 button1_Click(sender,e);
+                checkBox13.Checked = true;
                 
 
             }
@@ -722,14 +724,9 @@ namespace WindowsFormsApplication6
         {
 
             Application.Exit();
-
-            //Reset Auto 
-            string str = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
-            IniFile ini = new IniFile(str + "\\USBTest.ini");
-            ini.Write("AUTO", "1");
         }
 
-        int timeLeft=1;
+        int timeLeft=3;
         
         private void timer1_Tick(object sender, EventArgs e)
         {
