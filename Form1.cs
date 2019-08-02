@@ -400,6 +400,27 @@ namespace WindowsFormsApplication6
             {timer1_Tick(sender, e);}
            
         }
+
+        //Save Button
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string str1 = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+            IniFile ini = new IniFile(str1 + "\\USBTest.ini");
+            if (checkBox1.Checked == true) { ini.Write("USB1", "1"); } else { ini.Write("USB1", "0"); }
+            if (checkBox2.Checked == true) { ini.Write("USB2", "1"); } else { ini.Write("USB2", "0"); }
+            if (checkBox3.Checked == true) { ini.Write("USB3", "1"); } else { ini.Write("USB3", "0"); }
+            if (checkBox5.Checked == true) { ini.Write("USB4", "1"); } else { ini.Write("USB4", "0"); }
+            if (checkBox4.Checked == true) { ini.Write("USB5", "1"); } else { ini.Write("USB5", "0"); }
+            if (checkBox6.Checked == true) { ini.Write("USB6", "1"); } else { ini.Write("USB6", "0"); }
+            if (checkBox7.Checked == true) { ini.Write("USB7", "1"); } else { ini.Write("USB7", "0"); }
+            if (checkBox8.Checked == true) { ini.Write("USB8", "1"); } else { ini.Write("USB8", "0"); }
+            if (checkBox9.Checked == true) { ini.Write("USB9", "1"); } else { ini.Write("USB9", "0"); }
+            if (checkBox10.Checked == true) { ini.Write("USB10", "1"); } else { ini.Write("USB10", "0"); }
+            if (checkBox11.Checked == true) { ini.Write("USB11", "1"); } else { ini.Write("USB11", "0"); }
+            if (checkBox12.Checked == true) { ini.Write("USB12", "1"); } else { ini.Write("USB12", "0"); }
+
+        }
+
         public void CreateUSBFile_textBox_added()
         {
             int count = 0;
@@ -748,6 +769,8 @@ namespace WindowsFormsApplication6
             }
 
         }
+
+        
 
   
     }

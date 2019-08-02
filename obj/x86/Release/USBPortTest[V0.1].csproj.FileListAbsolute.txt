@@ -6,4 +6,3 @@ D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest[V0.1]\obj\x86\Relea
 D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest[V0.1]\obj\x86\Release\USBPortTest[V0.1].csproj.GenerateResource.Cache
 D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest[V0.1]\obj\x86\Release\WindowsFormsApplication6.exe
 D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest[V0.1]\obj\x86\Release\WindowsFormsApplication6.pdb
-D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest[V0.1]\obj\x86\Release\USBPortTest[V0.1].csprojResolveAssemblyReference.cache
