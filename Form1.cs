@@ -35,71 +35,12 @@ namespace WindowsFormsApplication6
 
             //添加磁碟名
             DiskName();
-
-            //switch 更替不同物件
-            int count = 0;
-
-            //Show USB Storage Content 
-            ManagementObjectSearcher device_searcher = new ManagementObjectSearcher("SELECT * FROM Win32_USBHub");
-            foreach (ManagementObject usb_device in device_searcher.Get())
-            {
-                //如果符合USB類型
-                if (usb_device.Properties["Name"].Value.ToString() == "USB Mass Storage Device")
-                {
-
-                    //textBox1.AppendText(usb_device.Properties["Caption"].Value.ToString() + "\n");                
-
-                    count += 1;
-                    
-                }
-                //將資訊添加在條列式textBox中
-                switch (count)
-                {
-                    case 1:
-                        if (usb_device.Properties["Description"].Value.ToString() == "USB Mass Storage Device")
-                        {textBox2.Text += (usb_device.Properties["Description"].Value.ToString()); }break;
-                    case 2:
-                        if (usb_device.Properties["Description"].Value.ToString() == "USB Mass Storage Device")
-                        { textBox3.Text += (usb_device.Properties["Description"].Value.ToString()); }break; 
-                    case 3:
-                        if (usb_device.Properties["Description"].Value.ToString() == "USB Mass Storage Device")
-                        { textBox4.Text += (usb_device.Properties["Description"].Value.ToString()); } break;
-                    case 4:
-                        if (usb_device.Properties["Description"].Value.ToString() == "USB Mass Storage Device")
-                        { textBox5.Text += (usb_device.Properties["Description"].Value.ToString());} break; 
-                    case 5:
-                        if (usb_device.Properties["Description"].Value.ToString() == "USB Mass Storage Device")
-                        {textBox6.Text += (usb_device.Properties["Description"].Value.ToString());} break;
-                    case 6:
-                        if (usb_device.Properties["Description"].Value.ToString() == "USB Mass Storage Device")
-                        {textBox7.Text += (usb_device.Properties["Description"].Value.ToString());} break;
-                    case 7:
-                        if (usb_device.Properties["Description"].Value.ToString() == "USB Mass Storage Device")
-                        {textBox8.Text += (usb_device.Properties["Description"].Value.ToString()); }break;
-                    case 8:
-                        if (usb_device.Properties["Description"].Value.ToString() == "USB Mass Storage Device")
-                        {textBox9.Text += (usb_device.Properties["Description"].Value.ToString());} break;
-                    case 9:
-                        if (usb_device.Properties["Description"].Value.ToString() == "USB Mass Storage Device")
-                        {textBox10.Text += (usb_device.Properties["Description"].Value.ToString()); }break;
-                    case 10:
-                        if (usb_device.Properties["Description"].Value.ToString() == "USB Mass Storage Device")
-                        {textBox11.Text += (usb_device.Properties["Description"].Value.ToString());} break;
-                    case 11:
-                        if (usb_device.Properties["Description"].Value.ToString() == "USB Mass Storage Device")
-                        {textBox12.Text += (usb_device.Properties["Description"].Value.ToString());} break;
-                    case 12:
-                        if (usb_device.Properties["Description"].Value.ToString() == "USB Mass Storage Device")
-                        {textBox13.Text += (usb_device.Properties["Description"].Value.ToString());} break;
-                    
-                }
-
-            }
+   
             //計算有多少個USB Devices 
-            textBox1.AppendText("Total Number of USB Key Devices: " + count + "\r\n");
+            textBox1.AppendText("Total Number of USB Key Devices: " + CountUSB.count + "\r\n");
             
             //如果count為0 則無USB Devices 
-            if (count == 0)
+            if (CountUSB.count == 0)
             {textBox1.AppendText("None Devices" + "\n");}
         }
 
@@ -118,58 +59,8 @@ namespace WindowsFormsApplication6
             DiskName();
             CreateUSBFile_textBox_added();
 
-            //switch 更替不同物件
-            int count = 1;
-
             //logtestflag 返回預設值
             log_test.log_flag = 0;
-
-            //USB Message storage devices show at list 
-            ManagementObjectSearcher device_searcher = new ManagementObjectSearcher("SELECT * FROM Win32_USBHub");
-            foreach (ManagementObject usb_device in device_searcher.Get())
-            {
-                //將資訊添加在條列式textBox中(textBox14~25 errorcode 儲存)
-                switch (count)
-                {
-                    case 1:
-                        if (usb_device.Properties["Description"].Value.ToString() == "USB Mass Storage Device")
-                        { textBox2.Text += (usb_device.Properties["Description"].Value.ToString());textBox14.Text +=  usb_device.Properties["ConfigManagerErrorCode"].Value.ToString();count += 1;} break;
-                    case 2:
-                        if (usb_device.Properties["Description"].Value.ToString() == "USB Mass Storage Device")
-                        { textBox3.Text += (usb_device.Properties["Description"].Value.ToString());textBox15.Text +=  usb_device.Properties["ConfigManagerErrorCode"].Value.ToString();count += 1;} break;
-                    case 3:
-                        if (usb_device.Properties["Description"].Value.ToString() == "USB Mass Storage Device")
-                        { textBox4.Text += (usb_device.Properties["Description"].Value.ToString());textBox16.Text +=  usb_device.Properties["ConfigManagerErrorCode"].Value.ToString();count += 1;} break;
-                    case 4:
-                        if (usb_device.Properties["Description"].Value.ToString() == "USB Mass Storage Device")
-                        { textBox5.Text += (usb_device.Properties["Description"].Value.ToString()); textBox17.Text +=  usb_device.Properties["ConfigManagerErrorCode"].Value.ToString();count += 1;} break;
-                    case 5:
-                        if (usb_device.Properties["Description"].Value.ToString() == "USB Mass Storage Device")
-                        { textBox6.Text += (usb_device.Properties["Description"].Value.ToString()); textBox18.Text +=  usb_device.Properties["ConfigManagerErrorCode"].Value.ToString();count += 1;} break;
-                    case 6:
-                        if (usb_device.Properties["Description"].Value.ToString() == "USB Mass Storage Device")
-                        { textBox7.Text += (usb_device.Properties["Description"].Value.ToString()); textBox19.Text +=  usb_device.Properties["ConfigManagerErrorCode"].Value.ToString();count += 1;} break;
-                    case 7:
-                        if (usb_device.Properties["Description"].Value.ToString() == "USB Mass Storage Device")
-                        { textBox8.Text += (usb_device.Properties["Description"].Value.ToString()); textBox20.Text +=  usb_device.Properties["ConfigManagerErrorCode"].Value.ToString(); count += 1;} break;
-                    case 8:
-                        if(usb_device.Properties["Description"].Value.ToString() == "USB Mass Storage Device")
-                         { textBox9.Text += (usb_device.Properties["Description"].Value.ToString()); textBox21.Text +=  usb_device.Properties["ConfigManagerErrorCode"].Value.ToString();count += 1;} break;
-                    case 9:
-                        if (usb_device.Properties["Description"].Value.ToString() == "USB Mass Storage Device")
-                        { textBox10.Text += (usb_device.Properties["Description"].Value.ToString());textBox22.Text +=  usb_device.Properties["ConfigManagerErrorCode"].Value.ToString();count += 1;} break;
-                    case 10:
-                        if (usb_device.Properties["Description"].Value.ToString() == "USB Mass Storage Device")
-                        { textBox11.Text += (usb_device.Properties["Description"].Value.ToString());textBox23.Text +=  usb_device.Properties["ConfigManagerErrorCode"].Value.ToString();count += 1;} break;
-                    case 11:
-                        if (usb_device.Properties["Description"].Value.ToString() == "USB Mass Storage Device")
-                        { textBox12.Text += (usb_device.Properties["Description"].Value.ToString());textBox24.Text +=  usb_device.Properties["ConfigManagerErrorCode"].Value.ToString();count += 1;} break;
-                    case 12:
-                        if (usb_device.Properties["Description"].Value.ToString() == "USB Mass Storage Device")
-                        { textBox13.Text += (usb_device.Properties["Description"].Value.ToString()); textBox25.Text +=  usb_device.Properties["ConfigManagerErrorCode"].Value.ToString();count += 1;} break;
-
-                }
-            }
 
             //Test whether checkBox check or not
             int[] CheckBoxBool = new int[13];
@@ -198,18 +89,18 @@ namespace WindowsFormsApplication6
                     switch (i)
                     {
                         
-                        case 1:  str = textBox14.Text.ToString(); if (str == "00") { test = true; } break;
-                        case 2:  str = textBox15.Text.ToString(); if (str == "00") { test = true; } break;
-                        case 3:  str = textBox16.Text.ToString(); if (str == "00") { test = true; } break;
-                        case 4:  str = textBox17.Text.ToString(); if (str == "00") { test = true; } break;
-                        case 5:  str = textBox18.Text.ToString(); if (str == "00") { test = true; } break;
-                        case 6:  str = textBox19.Text.ToString(); if (str == "00") { test = true; } break;
-                        case 7:  str = textBox20.Text.ToString(); if (str == "00") { test = true; } break;
-                        case 8:  str = textBox21.Text.ToString(); if (str == "00") { test = true; } break;
-                        case 9:  str = textBox22.Text.ToString(); if (str == "00") { test = true; } break;
-                        case 10: str = textBox23.Text.ToString(); if (str == "00") { test = true; } break;
-                        case 11: str = textBox24.Text.ToString(); if (str == "00") { test = true; } break;
-                        case 12: str = textBox25.Text.ToString(); if (str == "00") { test = true; } break;
+                        case 1:  str = textBox14.Text.ToString(); if (str == "0") { test = true; } break;
+                        case 2:  str = textBox15.Text.ToString(); if (str == "0") { test = true; } break;
+                        case 3:  str = textBox16.Text.ToString(); if (str == "0") { test = true; } break;
+                        case 4:  str = textBox17.Text.ToString(); if (str == "0") { test = true; } break;
+                        case 5:  str = textBox18.Text.ToString(); if (str == "0") { test = true; } break;
+                        case 6:  str = textBox19.Text.ToString(); if (str == "0") { test = true; } break;
+                        case 7:  str = textBox20.Text.ToString(); if (str == "0") { test = true; } break;
+                        case 8:  str = textBox21.Text.ToString(); if (str == "0") { test = true; } break;
+                        case 9:  str = textBox22.Text.ToString(); if (str == "0") { test = true; } break;
+                        case 10: str = textBox23.Text.ToString(); if (str == "0") { test = true; } break;
+                        case 11: str = textBox24.Text.ToString(); if (str == "0") { test = true; } break;
+                        case 12: str = textBox25.Text.ToString(); if (str == "0") { test = true; } break;
 
                     }
                     
@@ -272,7 +163,7 @@ namespace WindowsFormsApplication6
                 textBox1.AppendText("Create USBTest.txt File\r\n");
                 textBox1.AppendText("Test Return Result\r\n");
                 textBox1.AppendText("Delete USBTest.txt File\r\n");
-                if (textBox14.Text == "00") { textBox1.AppendText("USB Port 1 -------------> PASS\r\n"); }
+                if (textBox14.Text == "0") { textBox1.AppendText("USB Port 1 -------------> PASS\r\n"); }
                 else { textBox1.AppendText("USB Port 1 -------------> FAIL\r\n"); }
                 flag_testcheck = 1;
             }
@@ -281,7 +172,7 @@ namespace WindowsFormsApplication6
                 textBox1.AppendText("Create USBTest.txt File\r\n");
                 textBox1.AppendText("Test Return Result\r\n");
                 textBox1.AppendText("Delete USBTest.txt File\r\n");
-                if (textBox15.Text == "00") { textBox1.AppendText("USB Port 2 -------------> PASS\r\n"); }
+                if (textBox15.Text == "0") { textBox1.AppendText("USB Port 2 -------------> PASS\r\n"); }
                 else { textBox1.AppendText("USB Port 2 -------------> FAIL\r\n"); }
                 flag_testcheck = 1;
             }
@@ -290,7 +181,7 @@ namespace WindowsFormsApplication6
                 textBox1.AppendText("Create USBTest.txt File\r\n");
                 textBox1.AppendText("Test Return Result\r\n");
                 textBox1.AppendText("Delete USBTest.txt File\r\n");
-                if (textBox16.Text == "00") { textBox1.AppendText("USB Port 3 -------------> PASS\r\n"); }
+                if (textBox16.Text == "0") { textBox1.AppendText("USB Port 3 -------------> PASS\r\n"); }
                 else { textBox1.AppendText("USB Port 3 -------------> FAIL\r\n"); }
                 flag_testcheck = 1;
             }
@@ -299,7 +190,7 @@ namespace WindowsFormsApplication6
                 textBox1.AppendText("Create USBTest.txt File\r\n");
                 textBox1.AppendText("Test Return Result\r\n");
                 textBox1.AppendText("Delete USBTest.txt File\r\n");
-                if (textBox17.Text == "00") { textBox1.AppendText("USB Port 4 -------------> PASS\r\n"); }
+                if (textBox17.Text == "0") { textBox1.AppendText("USB Port 4 -------------> PASS\r\n"); }
                 else { textBox1.AppendText("USB Port 4 -------------> FAIL\r\n"); }
                 flag_testcheck = 1;
             }
@@ -308,7 +199,7 @@ namespace WindowsFormsApplication6
                 textBox1.AppendText("Create USBTest.txt File\r\n");
                 textBox1.AppendText("Test Return Result\r\n");
                 textBox1.AppendText("Delete USBTest.txt File\r\n");
-                if (textBox18.Text == "00") { textBox1.AppendText("USB Port 5 -------------> PASS\r\n"); }
+                if (textBox18.Text == "0") { textBox1.AppendText("USB Port 5 -------------> PASS\r\n"); }
                 else { textBox1.AppendText("USB Port 5 -------------> FAIL\r\n"); }
                 flag_testcheck = 1;
             }
@@ -317,7 +208,7 @@ namespace WindowsFormsApplication6
                 textBox1.AppendText("Create USBTest.txt File\r\n");
                 textBox1.AppendText("Test Return Result\r\n");
                 textBox1.AppendText("Delete USBTest.txt File\r\n");
-                if (textBox19.Text == "00") { textBox1.AppendText("USB Port 6 -------------> PASS\r\n"); }
+                if (textBox19.Text == "0") { textBox1.AppendText("USB Port 6 -------------> PASS\r\n"); }
                 else { textBox1.AppendText("USB Port 6 -------------> FAIL\r\n"); }
                 flag_testcheck = 1;
             }
@@ -326,7 +217,7 @@ namespace WindowsFormsApplication6
                 textBox1.AppendText("Create USBTest.txt File\r\n");
                 textBox1.AppendText("Test Return Result\r\n");
                 textBox1.AppendText("Delete USBTest.txt File\r\n");
-                if (textBox20.Text == "00") { textBox1.AppendText("USB Port 7 -------------> PASS\r\n"); }
+                if (textBox20.Text == "0") { textBox1.AppendText("USB Port 7 -------------> PASS\r\n"); }
                 else { textBox1.AppendText("USB Port 7 -------------> FAIL\r\n"); }
                 flag_testcheck = 1;
             }
@@ -335,7 +226,7 @@ namespace WindowsFormsApplication6
                 textBox1.AppendText("Create USBTest.txt File\r\n");
                 textBox1.AppendText("Test Return Result\r\n");
                 textBox1.AppendText("Delete USBTest.txt File\r\n");
-                if (textBox21.Text == "00") { textBox1.AppendText("USB Port 8 -------------> PASS\r\n"); }
+                if (textBox21.Text == "0") { textBox1.AppendText("USB Port 8 -------------> PASS\r\n"); }
                 else { textBox1.AppendText("USB Port 8 -------------> FAIL\r\n"); }
                 flag_testcheck = 1;
             }
@@ -344,7 +235,7 @@ namespace WindowsFormsApplication6
                 textBox1.AppendText("Create USBTest.txt File\r\n");
                 textBox1.AppendText("Test Return Result\r\n");
                 textBox1.AppendText("Delete USBTest.txt File\r\n");
-                if (textBox22.Text == "00") { textBox1.AppendText("USB Port 9 -------------> PASS\r\n"); }
+                if (textBox22.Text == "0") { textBox1.AppendText("USB Port 9 -------------> PASS\r\n"); }
                 else { textBox1.AppendText("USB Port 9 -------------> FAIL\r\n"); }
                 flag_testcheck = 1;
             }
@@ -353,7 +244,7 @@ namespace WindowsFormsApplication6
                 textBox1.AppendText("Create USBTest.txt File\r\n");
                 textBox1.AppendText("Test Return Result\r\n");
                 textBox1.AppendText("Delete USBTest.txt File\r\n");
-                if (textBox23.Text == "00") { textBox1.AppendText("USB Port 10 ------------> PASS\r\n"); }
+                if (textBox23.Text == "0") { textBox1.AppendText("USB Port 10 ------------> PASS\r\n"); }
                 else { textBox1.AppendText("USB Port 10 ------------> FAIL\r\n"); }
                 flag_testcheck = 1;
             }
@@ -362,7 +253,7 @@ namespace WindowsFormsApplication6
                 textBox1.AppendText("Create USBTest.txt File\r\n");
                 textBox1.AppendText("Test Return Result\r\n");
                 textBox1.AppendText("Delete USBTest.txt File\r\n");
-                if (textBox24.Text == "00") { textBox1.AppendText("USB Port 11 ------------> PASS\r\n"); }
+                if (textBox24.Text == "0") { textBox1.AppendText("USB Port 11 ------------> PASS\r\n"); }
                 else { textBox1.AppendText("USB Port 11 ------------> FAIL\r\n"); }
                 flag_testcheck = 1;
             }
@@ -371,7 +262,7 @@ namespace WindowsFormsApplication6
                 textBox1.AppendText("Create USBTest.txt File\r\n");
                 textBox1.AppendText("Test Return Result\r\n");
                 textBox1.AppendText("Delete USBTest.txt File\r\n");
-                if (textBox25.Text == "00") { textBox1.AppendText("USB Port 12 ------------> PASS\r\n"); }
+                if (textBox25.Text == "0") { textBox1.AppendText("USB Port 12 ------------> PASS\r\n"); }
                 else { textBox1.AppendText("USB Port 12 ------------> FAIL\r\n"); }
                 flag_testcheck = 1;
             }
@@ -435,18 +326,18 @@ namespace WindowsFormsApplication6
                     count += 1;
                     switch (count)
                     {
-                        case 1:   textBox14.Text += CreateUSBFileTest(d.Name); break;
-                        case 2:   textBox15.Text += CreateUSBFileTest(d.Name); break;
-                        case 3:   textBox16.Text += CreateUSBFileTest(d.Name); break;
-                        case 4:   textBox17.Text += CreateUSBFileTest(d.Name); break;
-                        case 5:   textBox18.Text += CreateUSBFileTest(d.Name); break;
-                        case 6:   textBox19.Text += CreateUSBFileTest(d.Name); break;
-                        case 7:   textBox20.Text += CreateUSBFileTest(d.Name); break;
-                        case 8:   textBox21.Text += CreateUSBFileTest(d.Name); break;
-                        case 9:   textBox22.Text += CreateUSBFileTest(d.Name); break;
-                        case 10:  textBox23.Text += CreateUSBFileTest(d.Name); break;
-                        case 11:  textBox24.Text += CreateUSBFileTest(d.Name); break;
-                        case 12:  textBox25.Text += CreateUSBFileTest(d.Name); break;
+                        case 1:   textBox14.Text = CreateUSBFileTest(d.Name); break;
+                        case 2:   textBox15.Text = CreateUSBFileTest(d.Name); break;
+                        case 3:   textBox16.Text = CreateUSBFileTest(d.Name); break;
+                        case 4:   textBox17.Text = CreateUSBFileTest(d.Name); break;
+                        case 5:   textBox18.Text = CreateUSBFileTest(d.Name); break;
+                        case 6:   textBox19.Text = CreateUSBFileTest(d.Name); break;
+                        case 7:   textBox20.Text = CreateUSBFileTest(d.Name); break;
+                        case 8:   textBox21.Text = CreateUSBFileTest(d.Name); break;
+                        case 9:   textBox22.Text = CreateUSBFileTest(d.Name); break;
+                        case 10:  textBox23.Text = CreateUSBFileTest(d.Name); break;
+                        case 11:  textBox24.Text = CreateUSBFileTest(d.Name); break;
+                        case 12:  textBox25.Text = CreateUSBFileTest(d.Name); break;
 
                     }
                 }
@@ -463,24 +354,30 @@ namespace WindowsFormsApplication6
                 if (d.DriveType.ToString() == "Removable")
                 {
                     count_1 += 1;
+                    CountUSB.count += 1;
                     switch (count_1)
                     {
-                        case 1: textBox2.Text = (d.Name);    break;
-                        case 2:  textBox3.Text  = (d.Name);  break;
-                        case 3:  textBox4.Text  = (d.Name);  break;
-                        case 4:  textBox5.Text  = (d.Name);  break;
-                        case 5:  textBox6.Text  = (d.Name);  break;
-                        case 6:  textBox7.Text  = (d.Name);  break;
-                        case 7:  textBox8.Text  = (d.Name);  break;
-                        case 8:  textBox9.Text  = (d.Name);  break;
-                        case 9:  textBox10.Text = (d.Name);  break;
-                        case 10: textBox11.Text = (d.Name);  break;
-                        case 11: textBox12.Text = (d.Name);  break;
-                        case 12: textBox13.Text = (d.Name);  break;
+                        case 1:  textBox2.Text  = (d.Name + "USB Mass Storage Device"); break;
+                        case 2:  textBox3.Text  = (d.Name + "USB Mass Storage Device"); break;
+                        case 3:  textBox4.Text  = (d.Name + "USB Mass Storage Device"); break;
+                        case 4:  textBox5.Text  = (d.Name + "USB Mass Storage Device"); break;
+                        case 5:  textBox6.Text  = (d.Name + "USB Mass Storage Device"); break;
+                        case 6:  textBox7.Text  = (d.Name + "USB Mass Storage Device"); break;
+                        case 7:  textBox8.Text  = (d.Name + "USB Mass Storage Device"); break;
+                        case 8:  textBox9.Text  = (d.Name + "USB Mass Storage Device"); break;
+                        case 9:  textBox10.Text = (d.Name + "USB Mass Storage Device"); break;
+                        case 10: textBox11.Text = (d.Name + "USB Mass Storage Device"); break;
+                        case 11: textBox12.Text = (d.Name + "USB Mass Storage Device"); break;
+                        case 12: textBox13.Text = (d.Name + "USB Mass Storage Device"); break;
 
                     }
                 }
             }
+        }
+
+        public class CountUSB
+        {
+            public static int count = 0;
         }
 
         public void CleanAll()
@@ -515,6 +412,7 @@ namespace WindowsFormsApplication6
             textBox13.Clear();
             CleanTextBox14to25();
             CleanPicBox();
+            CountUSB.count = 0;
 
         }
 
