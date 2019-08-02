@@ -321,7 +321,7 @@ namespace WindowsFormsApplication6
             DriveInfo[] allDrives = DriveInfo.GetDrives();
             foreach (DriveInfo d in allDrives)
             {
-                if (d.DriveType.ToString() != "Fixed")
+                if (d.DriveType.ToString() == "Removable")
                 {
                     count += 1;
                     switch (count)
