@@ -16,3 +16,5 @@ D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest\bin\Debug\WindowsFo
 D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest\bin\Debug\WindowsFormsApplication6.pdb
 D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest\obj\x86\Debug\WindowsFormsApplication6.exe
 D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest\obj\x86\Debug\WindowsFormsApplication6.pdb
+D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest_1\obj\x86\Debug\WindowsFormsApplication6.exe
+D:\Users\user\文件\Visual Studio 2010\Projects\USBPortTest_1\obj\x86\Debug\WindowsFormsApplication6.pdb
