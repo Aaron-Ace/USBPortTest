@@ -289,7 +289,7 @@ namespace WindowsFormsApplication6
             string str1 = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
             IniFile ini = new IniFile(str1 + "\\USBTest.ini");
             if (log_test.log_flag == 0 && ini.Read("AUTO") == "1")
-            {timer1_Tick(sender, e);}
+            {  timer1_Tick(sender, e); }
            
         }
 
@@ -628,8 +628,6 @@ namespace WindowsFormsApplication6
         
         private void timer1_Tick(object sender, EventArgs e)
         {
-            timer1.Start();
-
             if (timeLeft != 0)
             {
                 timeLeft = timeLeft - 1;
