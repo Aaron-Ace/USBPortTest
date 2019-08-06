@@ -14,6 +14,7 @@ using System.Runtime.InteropServices;
 using System.Reflection;
 using System.Threading;
 
+
 namespace USBPortTest
 {
     public partial class Form1 : Form
@@ -32,26 +33,23 @@ namespace USBPortTest
 
             string str = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
             IniFile ini = new IniFile(str + "\\USBTest.ini");
+            if (ini.Read("USB1") == "1") { checkBox1.Checked = true; } else { checkBox1.Checked = false; }
+            if (ini.Read("USB2") == "1") { checkBox2.Checked = true; } else { checkBox2.Checked = false; }
+            if (ini.Read("USB3") == "1") { checkBox3.Checked = true; } else { checkBox3.Checked = false; }
+            if (ini.Read("USB4") == "1") { checkBox5.Checked = true; } else { checkBox5.Checked = false; }
+            if (ini.Read("USB5") == "1") { checkBox4.Checked = true; } else { checkBox4.Checked = false; }
+            if (ini.Read("USB6") == "1") { checkBox6.Checked = true; } else { checkBox6.Checked = false; }
+            if (ini.Read("USB7") == "1") { checkBox7.Checked = true; } else { checkBox7.Checked = false; }
+            if (ini.Read("USB8") == "1") { checkBox8.Checked = true; } else { checkBox8.Checked = false; }
+            if (ini.Read("USB9") == "1") { checkBox9.Checked = true; } else { checkBox9.Checked = false; }
+            if (ini.Read("USB10") == "1") { checkBox10.Checked = true; } else { checkBox10.Checked = false; }
+            if (ini.Read("USB11") == "1") { checkBox11.Checked = true; } else { checkBox11.Checked = false; }
+            if (ini.Read("USB12") == "1") { checkBox12.Checked = true; } else { checkBox12.Checked = false; }
             if (ini.Read("AUTO") == "1")
             {
-
-                if (ini.Read("USB1") == "1") { checkBox1.Checked = true; } else { checkBox1.Checked = false; }
-                if (ini.Read("USB2") == "1") { checkBox2.Checked = true; } else { checkBox2.Checked = false; }
-                if (ini.Read("USB3") == "1") { checkBox3.Checked = true; } else { checkBox3.Checked = false; }
-                if (ini.Read("USB4") == "1") { checkBox5.Checked = true; } else { checkBox5.Checked = false; }
-                if (ini.Read("USB5") == "1") { checkBox4.Checked = true; } else { checkBox4.Checked = false; }
-                if (ini.Read("USB6") == "1") { checkBox6.Checked = true; } else { checkBox6.Checked = false; }
-                if (ini.Read("USB7") == "1") { checkBox7.Checked = true; } else { checkBox7.Checked = false; }
-                if (ini.Read("USB8") == "1") { checkBox8.Checked = true; } else { checkBox8.Checked = false; }
-                if (ini.Read("USB9") == "1") { checkBox9.Checked = true; } else { checkBox9.Checked = false; }
-                if (ini.Read("USB10") == "1") { checkBox10.Checked = true; } else { checkBox10.Checked = false; }
-                if (ini.Read("USB11") == "1") { checkBox11.Checked = true; } else { checkBox11.Checked = false; }
-                if (ini.Read("USB12") == "1") { checkBox12.Checked = true; } else { checkBox12.Checked = false; }
                 checkBox13.Checked = true;
+                textBox1.AppendText("   [Auto Test]\r\n");
                 button1_Click(sender, e);
-                
-
-
             }
 
         }
@@ -179,7 +177,7 @@ namespace USBPortTest
             int flag_testcheck = 0;
 
             //add Time
-            string date = DateTime.Now.ToString("MM-dd-yyyy HH:mm:ss");
+            string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             textBox1.AppendText("\r\n      Time :" + date + "\r\n");
 
 
@@ -187,64 +185,64 @@ namespace USBPortTest
             if (checkBox1.Checked == true)
             {
                 textBox1.AppendText("       Copy File Test\r\n");
-                if (textBox14.Text == "0") { textBox1.AppendText("       USB Port #1:PASS\r\n"); }
-                else { textBox1.AppendText("       USB Port #1:FAIL\r\n"); }
+                if (textBox14.Text == "0") { textBox1.AppendText("       USB Port #01:PASS\r\n"); }
+                else { textBox1.AppendText("       USB Port #01:FAIL\r\n"); }
                 flag_testcheck = 1;
             }
             if (checkBox2.Checked == true)
             {
                 textBox1.AppendText("       Copy File Test\r\n");
-                if (textBox15.Text == "0") { textBox1.AppendText("       USB Port #2:PASS\r\n"); }
-                else { textBox1.AppendText("       USB Port #2:FAIL\r\n"); }
+                if (textBox15.Text == "0") { textBox1.AppendText("       USB Port #02:PASS\r\n"); }
+                else { textBox1.AppendText("       USB Port #02:FAIL\r\n"); }
                 flag_testcheck = 1;
             }
             if (checkBox3.Checked == true)
             {
                 textBox1.AppendText("       Copy File Test\r\n");
-                if (textBox16.Text == "0") { textBox1.AppendText("       USB Port #3:PASS\r\n"); }
-                else { textBox1.AppendText("       USB Port #3:FAIL\r\n"); }
+                if (textBox16.Text == "0") { textBox1.AppendText("       USB Port #03:PASS\r\n"); }
+                else { textBox1.AppendText("       USB Port #03:FAIL\r\n"); }
                 flag_testcheck = 1;
             }
             if (checkBox4.Checked == true)
             {
                 textBox1.AppendText("       Copy File Test\r\n");
-                if (textBox17.Text == "0") { textBox1.AppendText("       USB Port #4:PASS\r\n"); }
-                else { textBox1.AppendText("       USB Port #4:FAIL\r\n"); }
+                if (textBox17.Text == "0") { textBox1.AppendText("       USB Port #04:PASS\r\n"); }
+                else { textBox1.AppendText("       USB Port #04:FAIL\r\n"); }
                 flag_testcheck = 1;
             }
             if (checkBox5.Checked == true)
             {
                 textBox1.AppendText("       Copy File Test\r\n");
-                if (textBox18.Text == "0") { textBox1.AppendText("       USB Port #5:PASS\r\n"); }
-                else { textBox1.AppendText("       USB Port #5:FAIL\r\n"); }
+                if (textBox18.Text == "0") { textBox1.AppendText("       USB Port #05:PASS\r\n"); }
+                else { textBox1.AppendText("       USB Port #05:FAIL\r\n"); }
                 flag_testcheck = 1;
             }
             if (checkBox6.Checked == true)
             {
                 textBox1.AppendText("       Copy File Test\r\n");
-                if (textBox19.Text == "0") { textBox1.AppendText("       USB Port #6:PASS\r\n"); }
-                else { textBox1.AppendText("       USB Port #6:FAIL\r\n"); }
+                if (textBox19.Text == "0") { textBox1.AppendText("       USB Port #06:PASS\r\n"); }
+                else { textBox1.AppendText("       USB Port #06:FAIL\r\n"); }
                 flag_testcheck = 1;
             }
             if (checkBox7.Checked == true)
             {
                 textBox1.AppendText("       Copy File Test\r\n");
-                if (textBox20.Text == "0") { textBox1.AppendText("       USB Port #7:PASS\r\n"); }
-                else { textBox1.AppendText("       USB Port #7:FAIL\r\n"); }
+                if (textBox20.Text == "0") { textBox1.AppendText("       USB Port #07:PASS\r\n"); }
+                else { textBox1.AppendText("       USB Port #07:FAIL\r\n"); }
                 flag_testcheck = 1;
             }
             if (checkBox8.Checked == true)
             {
                 textBox1.AppendText("       Copy File Test\r\n");
-                if (textBox21.Text == "0") { textBox1.AppendText("       USB Port #8:PASS\r\n"); }
-                else { textBox1.AppendText("       USB Port #8:FAIL\r\n"); }
+                if (textBox21.Text == "0") { textBox1.AppendText("       USB Port #08:PASS\r\n"); }
+                else { textBox1.AppendText("       USB Port #08:FAIL\r\n"); }
                 flag_testcheck = 1;
             }
             if (checkBox9.Checked == true)
             {
                 textBox1.AppendText("       Copy File Test\r\n");
-                if (textBox22.Text == "0") { textBox1.AppendText("       USB Port #9:PASS\r\n"); }
-                else { textBox1.AppendText("       USB Port #9:FAIL\r\n"); }
+                if (textBox22.Text == "0") { textBox1.AppendText("       USB Port #09:PASS\r\n"); }
+                else { textBox1.AppendText("       USB Port #09:FAIL\r\n"); }
                 flag_testcheck = 1;
             }
             if (checkBox10.Checked == true)
@@ -273,15 +271,15 @@ namespace USBPortTest
             if (flag_testcheck == 0 && log_test.log_flag == 0)
             {
                 MessageBox.Show("Warning ! Please select an USB Port !");
-                //button2_Click(sender, e);
+                Environment.ExitCode = 1;
             }
             else if (log_test.log_flag == 0)
             {
-                textBox1.AppendText("       Test  Result ----------------> PASS\r\n");
+                textBox1.AppendText("       Test  Result ----------------> PASS\r\n"); Environment.ExitCode = 0;
             }
             else
             {
-                textBox1.AppendText("       Test  Result ----------------> FAIL\r\n");
+                textBox1.AppendText("       Test  Result ----------------> FAIL\r\n"); Environment.ExitCode = 1;
             }
 
             //製作結果檔
@@ -290,9 +288,8 @@ namespace USBPortTest
             //自動程式關閉
             string str1 = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
             IniFile ini = new IniFile(str1 + "\\USBTest.ini");
-            if (log_test.log_flag == 0 && ini.Read("AUTO") == "1")
+            if (log_test.log_flag == 0 && checkBox13.Checked == true)
             { timer1.Start(); timer1_Tick(sender, e); }
-
 
             textBox1.AppendText("   [Test End]\r\n\r\n");
         }
@@ -391,21 +388,6 @@ namespace USBPortTest
 
         public void CleanAll()
         {
-            checkBox1.Checked = false;
-            checkBox1.Checked = false;
-            checkBox1.Checked = false;
-            checkBox2.Checked = false;
-            checkBox3.Checked = false;
-            checkBox5.Checked = false;
-            checkBox4.Checked = false;
-            checkBox6.Checked = false;
-            checkBox7.Checked = false;
-            checkBox8.Checked = false;
-            checkBox9.Checked = false;
-            checkBox10.Checked = false;
-            checkBox11.Checked = false;
-            checkBox12.Checked = false;
-            checkBox13.Checked = false;
             textBox1.AppendText("------------Scan USB Key--------------\r\n");
             textBox2.Clear();
             textBox3.Clear();
@@ -423,6 +405,25 @@ namespace USBPortTest
             CleanPicBox();
             CountUSB.count = 0;
 
+        }
+
+        public void CleanCheckBox()
+        {
+            checkBox1.Checked = false;
+            checkBox1.Checked = false;
+            checkBox1.Checked = false;
+            checkBox2.Checked = false;
+            checkBox3.Checked = false;
+            checkBox5.Checked = false;
+            checkBox4.Checked = false;
+            checkBox6.Checked = false;
+            checkBox7.Checked = false;
+            checkBox8.Checked = false;
+            checkBox9.Checked = false;
+            checkBox10.Checked = false;
+            checkBox11.Checked = false;
+            checkBox12.Checked = false;
+            checkBox13.Checked = false;
         }
 
         public void CleanPicBox()
@@ -571,7 +572,7 @@ namespace USBPortTest
                     StreamWriter writer = new StreamWriter(Directory.GetCurrentDirectory() + "\\" + logfilename, true);
                     writer.Write("USB Port Test : \r\n");
                     writer.Write("-------------------------------------- \r\n");
-                    writer.Write("Time\tResult\r\n");
+                    writer.Write("Time\t\t\t     Result\r\n");
                     writer.Close();
 
                 }
@@ -606,7 +607,11 @@ namespace USBPortTest
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (timeLeft > 0)
+            if (checkBox13.Checked == false)
+            {
+                timeLeft = 1; 
+            }
+            else if (timeLeft > 0)
             {
                 timeLeft = timeLeft - 1;
 
@@ -640,9 +645,6 @@ namespace USBPortTest
             }
 
         }
-
-
-
 
     }
 }
