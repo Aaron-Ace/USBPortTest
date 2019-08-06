@@ -271,15 +271,14 @@ namespace USBPortTest
             if (flag_testcheck == 0 && log_test.log_flag == 0)
             {
                 MessageBox.Show("Warning ! Please select an USB Port !");
-                Environment.ExitCode = 1;
             }
             else if (log_test.log_flag == 0)
             {
-                textBox1.AppendText("       Test  Result ----------------> PASS\r\n"); Environment.ExitCode = 0;
+                textBox1.AppendText("       Test  Result ----------------> PASS\r\n"); 
             }
             else
             {
-                textBox1.AppendText("       Test  Result ----------------> FAIL\r\n"); Environment.ExitCode = 1;
+                textBox1.AppendText("       Test  Result ----------------> FAIL\r\n");
             }
 
             //製作結果檔
@@ -318,6 +317,12 @@ namespace USBPortTest
         private void button4_Click(object sender, EventArgs e)
         {
             textBox1.Text = " ";
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (log_test.log_flag == 0) { Environment.ExitCode = 0; }
+            else { Environment.ExitCode = 1; }
         }
 
         public void CreateUSBFile_textBox_added()
@@ -645,6 +650,8 @@ namespace USBPortTest
             }
 
         }
+
+
 
     }
 }
