@@ -311,6 +311,7 @@ namespace USBPortTest
             if (checkBox11.Checked == true) { ini.Write("USB11", "1"); } else { ini.Write("USB11", "0"); }
             if (checkBox12.Checked == true) { ini.Write("USB12", "1"); } else { ini.Write("USB12", "0"); }
             if (checkBox13.Checked == true) { ini.Write("AUTO", "1"); } else { ini.Write("AUTO", "0"); }
+            textBox1.AppendText("   Saved test configuration\r\n");
 
         }
 
